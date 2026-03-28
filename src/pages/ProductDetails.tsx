@@ -85,7 +85,7 @@ export default function ProductDetails() {
                     selectedImage === idx ? "ring-1 ring-primary-gold" : "opacity-70 hover:opacity-100"
                   )}
                 >
-                  <img src={img} alt={`${product.name} thumbnail ${idx + 1}`} className={cn("w-full h-full object-center", product.name === 'Mini Zirconia set' ? 'object-contain bg-white' : 'object-cover')} />
+                  <img src={img} alt={`${product.name} thumbnail ${idx + 1}`} className="w-full h-full object-cover object-center" />
                 </button>
               ))}
             </div>
@@ -97,10 +97,7 @@ export default function ProductDetails() {
                 transition={{ duration: 0.3 }}
                 src={product.images[selectedImage]}
                 alt={product.name}
-                className={cn(
-                  "w-full h-full object-center cursor-zoom-in transition-transform duration-500 group-hover:scale-110",
-                  product.name === 'Mini Zirconia set' ? 'object-contain bg-white' : 'object-cover'
-                )}
+                className="w-full h-full object-cover object-center cursor-zoom-in transition-transform duration-500 group-hover:scale-110"
               />
               {/* Badges */}
               <div className="absolute top-4 left-4 z-10 flex flex-col gap-2">

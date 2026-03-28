@@ -65,18 +65,12 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         <img
           src={product.images[0]}
           alt={product.name}
-          className={cn(
-            "w-full h-full object-center transition-opacity duration-500 group-hover:opacity-0",
-            product.name === 'Mini Zirconia set' ? 'object-contain bg-white' : 'object-cover'
-          )}
+          className="w-full h-full object-cover object-center transition-opacity duration-500 group-hover:opacity-0"
         />
         <img
           src={product.images[1] || product.images[0]}
           alt={`${product.name} alternate view`}
-          className={cn(
-            "w-full h-full object-center absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 scale-105 group-hover:scale-100",
-            product.name === 'Mini Zirconia set' ? 'object-contain bg-white' : 'object-cover'
-          )}
+          className="w-full h-full object-cover object-center absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 scale-105 group-hover:scale-100"
         />
 
         {/* Quick Actions */}
