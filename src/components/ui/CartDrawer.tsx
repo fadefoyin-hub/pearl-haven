@@ -69,7 +69,10 @@ export function CartDrawer() {
                         <img
                           src={item.images[0]}
                           alt={item.name}
-                          className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                          className={cn(
+                            "w-full h-full object-center transition-transform duration-500 group-hover:scale-105",
+                            item.name === 'Mini Zirconia set' ? 'object-contain bg-white' : 'object-cover'
+                          )}
                         />
                       </div>
                       <div className="flex-grow flex flex-col justify-between py-1">
