@@ -24,6 +24,7 @@ const generateProducts = (): Product[] => {
       const noun = nouns[Math.floor(Math.random() * nouns.length)];
       let name = `${adj} ${noun} ${cat.prefix}`;
       let price = Math.floor(Math.random() * 150000) + 20000; // 20k to 170k NGN
+      let customImages: string[] | undefined;
 
       // Ensure specific products appear
       if (cat.name === 'Rings' && i === 0) {
@@ -31,6 +32,20 @@ const generateProducts = (): Product[] => {
         price = 2000;
       } else if (cat.name === 'Necklaces' && i === 0) {
         name = 'Nuckle Rings';
+      } else if (cat.name === 'Sets' && i === 0) {
+        name = 'Mini Zirconia set';
+        customImages = [
+          '/mini-zirconia-set.jpg',
+          `https://placehold.co/800x1000/f5f5f0/1a1a1a?text=Mini+Zirconia+set+2`,
+          `https://placehold.co/800x1000/f5f5f0/1a1a1a?text=Mini+Zirconia+set+3`,
+        ];
+      } else if (name.includes('Celestial Tear')) {
+        name = 'Mini Zirconia set';
+        customImages = [
+          '/mini-zirconia-set.jpg',
+          `https://placehold.co/800x1000/f5f5f0/1a1a1a?text=Mini+Zirconia+set+2`,
+          `https://placehold.co/800x1000/f5f5f0/1a1a1a?text=Mini+Zirconia+set+3`,
+        ];
       } else if (name.includes('Celestial Aura')) {
         name = `Knuckle ${cat.prefix}`;
         price = 2000;
@@ -51,7 +66,7 @@ const generateProducts = (): Product[] => {
         oldPrice,
         discountPercentage,
         currency: '₦',
-        images: [
+        images: customImages || [
           `https://placehold.co/800x1000/f5f5f0/1a1a1a?text=${encodeURIComponent(name)}`,
           `https://placehold.co/800x1000/f5f5f0/1a1a1a?text=${encodeURIComponent(name)}+2`,
           `https://placehold.co/800x1000/f5f5f0/1a1a1a?text=${encodeURIComponent(name)}+3`,
