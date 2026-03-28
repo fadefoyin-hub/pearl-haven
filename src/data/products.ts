@@ -51,6 +51,8 @@ const generateProducts = (): Product[] => {
         price = 2000;
       } else if (name.includes('Radiant Elegance') || name.includes('Raidant Elegance')) {
         name = 'Nuckle Rings';
+      } else if (name.includes('Midnight Luxe')) {
+        name = `Royal Glow ${cat.prefix}`;
       }
       const hasDiscount = Math.random() > 0.7;
       const discountPercentage = hasDiscount ? Math.floor(Math.random() * 20) + 10 : undefined;
