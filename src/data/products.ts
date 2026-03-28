@@ -35,14 +35,14 @@ const generateProducts = (): Product[] => {
       } else if (cat.name === 'Sets' && i === 0) {
         name = 'Mini Zirconia set';
         customImages = [
-          '/mini-zirconia-set.jpg',
+          '/mini-zirconia-set.jpg?v=1',
           `https://placehold.co/800x1000/f5f5f0/1a1a1a?text=Mini+Zirconia+set+2`,
           `https://placehold.co/800x1000/f5f5f0/1a1a1a?text=Mini+Zirconia+set+3`,
         ];
       } else if (name.includes('Celestial Tear')) {
         name = 'Mini Zirconia set';
         customImages = [
-          '/mini-zirconia-set.jpg',
+          '/mini-zirconia-set.jpg?v=1',
           `https://placehold.co/800x1000/f5f5f0/1a1a1a?text=Mini+Zirconia+set+2`,
           `https://placehold.co/800x1000/f5f5f0/1a1a1a?text=Mini+Zirconia+set+3`,
         ];
@@ -83,9 +83,9 @@ const generateProducts = (): Product[] => {
         rating: Number((Math.random() * 1 + 4).toFixed(1)), // 4.0 to 5.0
         reviewCount: Math.floor(Math.random() * 150) + 5,
         tags: ['elegant', 'luxury', 'gift', 'wedding', 'everyday'].sort(() => 0.5 - Math.random()).slice(0, 3),
-        bestsellerFlag: Math.random() > 0.8,
-        newArrivalFlag: Math.random() > 0.8,
-        featuredFlag: Math.random() > 0.9,
+        bestsellerFlag: name === 'Mini Zirconia set' || name === 'Knuckle Ring' || name === 'Nuckle Rings' ? true : Math.random() > 0.8,
+        newArrivalFlag: name === 'Mini Zirconia set' || name === 'Knuckle Ring' || name === 'Nuckle Rings' ? true : Math.random() > 0.8,
+        featuredFlag: name === 'Mini Zirconia set' || name === 'Knuckle Ring' || name === 'Nuckle Rings' ? true : Math.random() > 0.9,
         careInstructions: 'Avoid contact with water, perfumes, and lotions. Store in the provided Pearl Haven pouch when not in use. Clean with a soft, dry cloth.',
       });
       idCounter++;
