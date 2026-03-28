@@ -2,6 +2,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X, Minus, Plus, ShoppingBag } from 'lucide-react';
 import { useStore } from '../../store/useStore';
 import { Link } from 'react-router-dom';
+import { cn } from '../../lib/utils';
 
 export function CartDrawer() {
   const { cart, isCartOpen, setIsCartOpen, removeFromCart, updateQuantity } = useStore();
@@ -69,7 +70,10 @@ export function CartDrawer() {
                         <img
                           src={item.images[0]}
                           alt={item.name}
-                          className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                          className={cn(
+                            "w-full h-full object-cover object-center transition-transform duration-500",
+                            (item.name === 'Knuckle Ring' || item.name === 'Nuckle Rings' || item.name.includes('Knuckle')) ? "scale-125 group-hover:scale-150" : "group-hover:scale-105"
+                          )}
                         />
                       </div>
                       <div className="flex-grow flex flex-col justify-between py-1">

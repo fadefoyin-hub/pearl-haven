@@ -306,7 +306,7 @@ export default function Checkout() {
                 {cart.map((item) => (
                   <div key={item.id} className="flex gap-4">
                     <div className="w-16 h-20 bg-white relative shrink-0">
-                      <img src={item.images[0]} alt={item.name} className="w-full h-full object-cover object-center" />
+                      <img src={item.images[0]} alt={item.name} className={cn("w-full h-full object-cover object-center", (item.name === 'Knuckle Ring' || item.name === 'Nuckle Rings' || item.name.includes('Knuckle')) && "scale-125")} />
                       <span className="absolute -top-2 -right-2 bg-deep-charcoal text-white text-[10px] font-bold h-5 w-5 rounded-full flex items-center justify-center">
                         {item.quantity}
                       </span>

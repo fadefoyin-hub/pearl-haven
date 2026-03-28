@@ -30,8 +30,10 @@ const generateProducts = (): Product[] => {
       if (cat.name === 'Rings' && i === 0) {
         name = 'Knuckle Ring';
         price = 2000;
+        customImages = ['/nuckle-rings.jpg'];
       } else if (cat.name === 'Necklaces' && i === 0) {
         name = 'Nuckle Rings';
+        customImages = ['/nuckle-rings.jpg'];
       } else if (cat.name === 'Sets' && i === 0) {
         name = 'Mini Zirconia set';
         customImages = [
@@ -45,8 +47,10 @@ const generateProducts = (): Product[] => {
       } else if (name.includes('Celestial Aura')) {
         name = `Knuckle ${cat.prefix}`;
         price = 2000;
+        customImages = ['/nuckle-rings.jpg'];
       } else if (name.includes('Radiant Elegance') || name.includes('Raidant Elegance')) {
         name = 'Nuckle Rings';
+        customImages = ['/nuckle-rings.jpg'];
       } else if (name.includes('Midnight Luxe')) {
         name = `Royal Glow ${cat.prefix}`;
       }
