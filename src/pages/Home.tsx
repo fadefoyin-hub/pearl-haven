@@ -9,10 +9,10 @@ export default function Home() {
   const newArrivals = getNewArrivals().slice(0, 4);
 
   const categories = [
-    { name: 'Necklaces', image: 'https://picsum.photos/seed/necklaces/600/800' },
-    { name: 'Earrings', image: 'https://picsum.photos/seed/earrings/600/800' },
-    { name: 'Rings', image: 'https://picsum.photos/seed/rings/600/800' },
-    { name: 'Bracelets', image: 'https://picsum.photos/seed/bracelets/600/800' },
+    { name: 'Necklaces', image: 'https://images.unsplash.com/photo-1599643477877-530eb83abc8e?auto=format&fit=crop&q=80&w=600&h=800' },
+    { name: 'Earrings', image: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&q=80&w=600&h=800' },
+    { name: 'Rings', image: 'https://images.unsplash.com/photo-1608042314453-ae338d80c427?auto=format&fit=crop&q=80&w=600&h=800' },
+    { name: 'Bracelets', image: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&q=80&w=600&h=800' },
   ];
 
   const features = [
@@ -28,7 +28,7 @@ export default function Home() {
       <section className="relative h-[85vh] min-h-[600px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
-            src="https://picsum.photos/seed/jewelryhero/1920/1080"
+            src="https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?auto=format&fit=crop&q=80&w=1920&h=1080"
             alt="Luxury Jewelry"
             className="w-full h-full object-cover object-center"
           />

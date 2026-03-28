@@ -22,14 +22,27 @@ const generateProducts = (): Product[] => {
     for (let i = 0; i < cat.count; i++) {
       const adj = adjectives[Math.floor(Math.random() * adjectives.length)];
       const noun = nouns[Math.floor(Math.random() * nouns.length)];
-      const name = `${adj} ${noun} ${cat.prefix}`;
-      const price = Math.floor(Math.random() * 150000) + 20000; // 20k to 170k NGN
+      let name = `${adj} ${noun} ${cat.prefix}`;
+      let price = Math.floor(Math.random() * 150000) + 20000; // 20k to 170k NGN
+
+      // Ensure specific products appear
+      if (cat.name === 'Rings' && i === 0) {
+        name = 'Knuckle Ring';
+        price = 2000;
+      } else if (cat.name === 'Necklaces' && i === 0) {
+        name = 'Nuckle Rings';
+      } else if (name.includes('Celestial Aura')) {
+        name = `Knuckle ${cat.prefix}`;
+        price = 2000;
+      } else if (name.includes('Radiant Elegance') || name.includes('Raidant Elegance')) {
+        name = 'Nuckle Rings';
+      }
       const hasDiscount = Math.random() > 0.7;
       const discountPercentage = hasDiscount ? Math.floor(Math.random() * 20) + 10 : undefined;
       const oldPrice = hasDiscount ? Math.floor(price / (1 - discountPercentage! / 100)) : undefined;
 
       products.push({
-        id: `sg-${idCounter.toString().padStart(4, '0')}`,
+        id: `ph-${idCounter.toString().padStart(4, '0')}`,
         name,
         slug: name.toLowerCase().replace(/\s+/g, '-'),
         category: cat.name,
@@ -39,9 +52,9 @@ const generateProducts = (): Product[] => {
         discountPercentage,
         currency: '₦',
         images: [
-          `https://picsum.photos/seed/${name.replace(/\s+/g, '')}1/800/1000`,
-          `https://picsum.photos/seed/${name.replace(/\s+/g, '')}2/800/1000`,
-          `https://picsum.photos/seed/${name.replace(/\s+/g, '')}3/800/1000`,
+          `https://placehold.co/800x1000/f5f5f0/1a1a1a?text=${encodeURIComponent(name)}`,
+          `https://placehold.co/800x1000/f5f5f0/1a1a1a?text=${encodeURIComponent(name)}+2`,
+          `https://placehold.co/800x1000/f5f5f0/1a1a1a?text=${encodeURIComponent(name)}+3`,
         ],
         shortDescription: `Elevate your style with the ${name}, a masterpiece of elegance and craftsmanship.`,
         fullDescription: `The ${name} is designed for the modern woman who appreciates timeless beauty. Crafted with precision and care, this piece adds a touch of sophistication to any outfit. Whether you're attending a gala or enjoying a casual brunch, its radiant finish ensures you always stand out.`,
@@ -49,7 +62,7 @@ const generateProducts = (): Product[] => {
         colors: ['Gold', 'Silver', 'Rose Gold'].sort(() => 0.5 - Math.random()).slice(0, 2),
         sizes: cat.name === 'Rings' ? ['6', '7', '8', '9'] : cat.name === 'Necklaces' ? ['16"', '18"', '20"'] : undefined,
         stockQuantity: Math.floor(Math.random() * 50) + 5,
-        sku: `SG-${cat.name.substring(0, 3).toUpperCase()}-${idCounter.toString().padStart(4, '0')}`,
+        sku: `PH-${cat.name.substring(0, 3).toUpperCase()}-${idCounter.toString().padStart(4, '0')}`,
         rating: Number((Math.random() * 1 + 4).toFixed(1)), // 4.0 to 5.0
         reviewCount: Math.floor(Math.random() * 150) + 5,
         tags: ['elegant', 'luxury', 'gift', 'wedding', 'everyday'].sort(() => 0.5 - Math.random()).slice(0, 3),
